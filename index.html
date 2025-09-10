@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseñador de Techos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 flex flex-col h-screen overflow-hidden">
+    <!-- Mensaje temporal -->
+    <div id="message-box" class="message-box"></div>
+
+    <!-- Contenedor Principal -->
+    <div class="flex-grow flex flex-col">
+        <!-- Barra de Control -->
+        <div class="bg-white p-4 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 border-b border-gray-200 shadow-sm">
+            <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Diseñador de Techos</h1>
+            <div class="flex flex-wrap justify-center gap-2">
+                <button id="btn-rectangle" class="px-4 py-2 bg-gray-700 text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-200 shadow-md">Rectángulo</button>
+                <button id="btn-trapezoid" class="px-4 py-2 bg-gray-700 text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-200 shadow-md">Trapezoide</button>
+                <button id="btn-triangle" class="px-4 py-2 bg-gray-700 text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-200 shadow-md">Triángulo</button>
+                <button id="btn-delete" class="px-4 py-2 bg-red-700 text-white rounded-full font-medium hover:bg-red-800 transition-colors duration-200 shadow-md">Eliminar Figura</button>
+                <button id="btn-guideline" class="px-4 py-2 bg-amber-600 text-white rounded-full font-medium hover:bg-amber-700 transition-colors duration-200 shadow-md">Línea Guía</button>
+            </div>
+        </div>
+
+        <!-- Panel de Distribución de Láminas -->
+        <div id="distribution-panel" class="bg-white p-4 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 border-b border-gray-200 shadow-sm">
+            <label for="ancho-util" class="text-gray-600 font-medium">Ancho Útil (m):</label>
+            <input type="number" id="ancho-util" value="1.00" step="0.1" class="w-24 p-2 border rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="btn-distribute" class="px-4 py-2 bg-green-700 text-white rounded-full font-medium hover:bg-green-800 transition-colors duration-200 shadow-md">Distribuir Láminas</button>
+        </div>
+
+        <!-- Área de Trabajo (Canvas) -->
+        <div class="flex-grow p-4 overflow-hidden relative">
+            <div id="canvas-container" class="rounded-lg h-full w-full relative">
+                <canvas id="roofCanvas" class="rounded-lg h-full w-full block"></canvas>
+            </div>
+
+            <!-- Panel de Edición de la figura -->
+            <div id="edit-panel" class="hidden bg-white p-4 rounded-lg shadow-xl w-64 border border-gray-200 space-y-3">
+                <h3 class="text-lg font-semibold text-gray-700">Editar Figura</h3>
+                <div class="space-y-2" id="edit-fields">
+                    <!-- Los campos de edición se generarán aquí con JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
